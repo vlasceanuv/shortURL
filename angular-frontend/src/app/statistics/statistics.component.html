@@ -1,0 +1,31 @@
+<mat-table class="statistics-table mat-elevation-z8" [dataSource]="dataSource">
+
+    <ng-container matColumnDef="OriginalURL">
+        <mat-header-cell *matHeaderCellDef>OriginalURL</mat-header-cell>
+        <mat-cell *matCellDef="let statistic">{{statistic.originalURL}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="OutputURL">
+        <mat-header-cell *matHeaderCellDef>OutputURL</mat-header-cell>
+        <mat-cell class="description-cell"
+                  *matCellDef="let statistic">http://localhost:4200/{{statistic.shortURL}}</mat-cell>
+
+    </ng-container>
+
+    <ng-container matColumnDef="GenerationDate">
+        <mat-header-cell *matHeaderCellDef>GenerationDate</mat-header-cell>
+        <mat-cell class="duration-cell"
+                  *matCellDef="let statistic">{{statistic.createdDate}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Visits">
+        <mat-header-cell *matHeaderCellDef>Visits</mat-header-cell>
+        <mat-cell class="duration-cell"
+                  *matCellDef="let statistic">{{statistic.usage}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>
